@@ -52,7 +52,14 @@ var employees = [
 
 //Code Here
 
-
+function employeeUpdater() {
+  for(var i = 0; i < employees.length; i++)
+  if ( employees[i]["firstName"] === "Theo") {
+      employees.splice([i], 1)     
+  } else if ( employees[i]["firstName"] === "Lorie") {
+    employees[i]["department"]= "HR"
+  } return employees;
+}
 
 ////////// PROBLEM 2 //////////
 
@@ -70,6 +77,21 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 //Code Here
 
+function removeDuplicates(arr) {
+  for(var i = 0; i < arr.length; i++) {
+    const active = arr[i]
+    for(var j = 1; j < arr.length; j++) {
+      if(j === active){
+        i++
+      }
+      if(j === i){
+        arr.splice([i], 1)
+      }
+    }
+  }
+  return arr;
+}
+removeDuplicates(workplaceAccidents)
 
 
 ////////// PROBLEM 3 //////////
@@ -97,8 +119,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity= cat.catFriends[0].activities[1];
+var fluffy2ndFriend= cat.catFriends[1].name;
 
 
 
@@ -139,13 +161,20 @@ var myCar = {
 */
 
 //Code Here
-
+function recordCleaner() {
+  for(var i = 0; i < myCar.accidents.length; i++){
+    if(myCar.accidents[i].atFaultForAccident === true){
+      myCar.accidents[i].atFaultForAccident = false;
+    }
+  }
+}
+recordCleaner(myCar)
 
 
 ////////// PROBLEM 5 //////////
 
 // Do not edit the code below.
-var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
+var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11] ];
 // Do not edit the code above.
 
 /*
@@ -159,4 +188,18 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
 //Code Here
 
+function looper() {
+  for(var i = 0; i < numsArr.length; i++){
+    for(var j = 0; j < numsArr[i].length; j++){
+      if(numsArr[i][j] % 2 === 0){
+        numsArr[i][j]= "even"
+      }
+      else numsArr[i][j]= "odd"
+    }
+  }
+  return numsArr;
+}
 
+looper()
+
+// this is not passing the Jasmine test but returns it all correctly in the console
